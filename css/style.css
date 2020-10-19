@@ -1,0 +1,435 @@
+/*################################################*/
+
+
+/*ESTILOS A LA PAGINA EN GENERAL*/
+
+
+/*DECLARACION DE VARIABLES DE CSS*/
+
+ :root {
+    /*Variable para la fuente principal*/
+    --fuentePrincipal: 'Staatliches', cursive;
+    --primario: #9c27b0;
+    --primarioOscuro: #89119d;
+    --secundario: #ffce00;
+}
+
+
+/**/
+
+html {
+    /*Reset para el tamaño de la fuente*/
+    font-size: 62.5%;
+    /*Paul Irish para habilitar el box-sizing*/
+    box-sizing: border-box;
+}
+
+
+/*Codigo de Paul Irish*/
+
+*,
+*:before,
+*:after {
+    /*Paul Irish*/
+    box-sizing: inherit;
+}
+
+
+/**/
+
+body {
+    /*Color de fondo*/
+    background-color: var(--primario);
+    /*Interlineado*/
+    line-height: 2;
+    /*Tamaño de la fuente*/
+    font-size: 2rem;
+}
+
+
+/*-------------------------------*/
+
+
+/*Colocar el footer fijo*/
+
+body.footer-fijo {
+    /*Habilitar flex el flex-direction va a colocar los elemento de izquierda a derecha*/
+    display: flex;
+    /*Cambiar la direccion a columna*/
+    flex-direction: column;
+    /*Altura minima*/
+    min-height: 100vh;
+}
+
+body.footer-fijo main {
+    /*Le decimos al main que crezca todo lo que puede
+    aun haci no tenga ningun contenido*/
+    flex: 1;
+}
+
+
+/*-------------------------------*/
+
+h1 {
+    /*Color del texto*/
+    color: var(--secundario);
+    /*Centrar el texto*/
+    text-align: center;
+    /*Tamaño de la fuente*/
+    font-size: 4rem;
+    /*Tipo de la fuente*/
+    font-family: var(--fuentePrincipal);
+}
+
+
+/*Aplicarle estilos a todos los parrafos*/
+
+p {
+    font-size: 1.8rem;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+}
+
+.contenedor {
+    /*Ancho maximo*/
+    max-width: 1000px;
+    /**/
+    width: 95%;
+    /*Margen 0: arriba y abajo auto: izquierda y derecha*/
+    margin: 0 auto;
+}
+
+img {
+    /*Para realizar las imagenes responsivas*/
+    max-width: 100%;
+}
+
+
+/*#############################################################3*/
+
+
+/*SECCION 1 ENCABEZADO*/
+
+
+/*Alinear la imagen principal*/
+
+header {
+    /*Habilitamos grid*/
+    display: grid;
+    /*Alineamos la imagen al centro*/
+    justify-content: center;
+    /*Espacio hacia adentro del contenedor
+        3rem: arriba y abajo
+        0: izquierda y derecha*/
+    padding: 3rem 0;
+}
+
+
+/*#############################################################*/
+
+
+/*SECCION 2 BARRA DE NAVEGACION*/
+
+.barra {
+    /*Color de fondo a la barra*/
+    background-color: var(--primarioOscuro);
+    /* Espacio hacia adentro de la barra
+                     1rem: arriba y abajo
+    0: izquierda y derecha*/
+    padding: 1rem 0;
+    /**/
+}
+
+.barra nav {
+    /*Para utilizar grid se habilita con */
+    display: grid;
+    /*Centrar el contenido */
+    justify-content: center;
+    /*Creamos 2 columnas con un ancho de 200px
+        Esto es para colocarle un ancho fijo*/
+    grid-template-columns: repeat(2, 200px);
+    /*Tmabien se puede colocar de esta manera para que tome
+        el espacio necesario*/
+    /*grid-template-columns: repeat(2, auto);*/
+    /*Separacion entre las 2 columnas para dejar un espacio entre ellas*/
+    grid-column-gap: 1rem;
+}
+
+.barra .nav a {
+    /*Tipo de fuente*/
+    font-family: var(--fuentePrincipal);
+    /*Tamaño de la fuente*/
+    font-size: 3rem;
+    /*centramos en texto*/
+    text-align: center;
+    /*Color del texto*/
+    color: #ffffff;
+    /*Quitar la linea del enlace*/
+    text-decoration: none;
+}
+
+
+/**/
+
+.barra .nav a:hover {
+    /*Color del texto al momento de poner el cursor encima del enlace TIENDA o NOSOTROS*/
+    color: var(--secundario);
+}
+
+
+/*#############################################################*/
+
+
+/*SECCION 3 NUESTROS PRODUCTOS*/
+
+.lista-productos {
+    /*habilitar grid*/
+    display: grid;
+    /*Creamos 2 columnas con un ancho de 200px
+        Esto es para colocarle un ancho fijo*/
+    grid-template-columns: repeat(2, 1fr);
+    /*Separacion entre los elementos osea las imagenes*/
+    grid-gap: 2rem;
+}
+
+
+/**/
+
+
+/*Para que muestre 3 columnas
+    al momento de llega a un ancho de 768px*/
+
+@media (min-width: 768px) {
+    /*El padre*/
+    .lista-productos {
+        /*Creamos 3 columnas con un ancho definido
+            Esto es para colocarle un ancho fijo*/
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+
+/**/
+
+.producto {
+    /*Color de fondo*/
+    background-color: var(--primarioOscuro);
+    /*Espacio hacia adentro del elemento*/
+    padding: 1rem;
+}
+
+
+/**/
+
+.contenido-producto p {
+    /*Tipo de fuente*/
+    font-family: var(--fuentePrincipal);
+    /*color del texto*/
+    color: white;
+    /*Centramos el texto*/
+    text-align: center;
+    /*Margen Arriba y abajo*/
+    margin: 1rem 0;
+    /*Interlineado*/
+    line-height: 2rem;
+}
+
+.contenedor .titulo {
+    /*Tamaño del titulo*/
+    font-size: 2rem;
+}
+
+.contenido-producto .precio {
+    /*Color al precio*/
+    color: var(--secundario);
+    /*Tamaño de la fuente*/
+    font-size: 2.5rem;
+}
+
+
+/*Para que la imagen del producto tome todo el espacio disponible cuando el sitio se vea en un celular*/
+
+.imagen-producto {
+    width: 100%;
+}
+
+
+/*#############################################################*/
+
+
+/*SECCION 4 GRAFICO */
+
+.grafico {
+    /*Estilos para el grafico 1 y grafico 2*/
+    min-height: 300px;
+    grid-row: 1 / 3;
+    /*centrar los graficos para que se vean bien la imagen */
+    background-size: cover;
+    background-position: center center;
+}
+
+
+/*SECCION 4 GRAFICO 1*/
+
+.grafico-1 {
+    /*Una grafico de fondo*/
+    background-image: url(../img/grafico1.jpg);
+    /*Posicionar el grafico de la fila 2 hasta la fila 3*/
+    grid-row: 2 / 3;
+    /*Posicionar el grafico de la columna 1 hasta la columna 3*/
+    grid-column: 1 / 3;
+}
+
+
+/*SECCION 4 GRAFICO 2*/
+
+.grafico-2 {
+    /*Una grafico de fondo*/
+    background-image: url(../img/grafico2.jpg);
+    /*Posicionar el grafico de la fila 8 hasta la fila 9*/
+    grid-row: 8 / 9;
+    /*Posicionar el grafico de la fila 1 hasta la fila 3*/
+    grid-column: 1 / 3;
+}
+
+
+/**/
+
+@media (min-width: 768px) {
+    .grafico-2 {
+        /*Una grafico de fondo*/
+        background-image: url(../img/grafico2.jpg);
+        /*Posicionar el grafico de la fila 5 hasta la fila 6*/
+        grid-row: 5 / 6;
+        /*Posicionar el grafico de la fila 2 hasta la fila 4*/
+        grid-column: 2 / 4;
+    }
+}
+
+
+/*#############################################################*/
+
+
+/*SECCION 4 NOSOTROS*/
+
+
+/*Cuando se muestra en un celular*/
+
+@media (min-width: 768px) {
+    .contenido-nosotros {
+        /*Habilitamos grid*/
+        display: grid;
+        /*Creamos 2 columnas se va colocar la imagen a la para del texto*/
+        grid-template-columns: repeat(2, 1fr);
+        /*Creamos 2 columnas solo que la columna del texto debe ser mas grande que la columna de la imagen*/
+        /*grid-template-columns: 2fr 1fr;*/
+        /*Para poner separacion entre columnas*/
+        grid-column-gap: 2rem;
+        /*Cuando se tenga filar y columnas se coloca de esta manera*/
+        /* grid-gap: 2rem 2rem;*/
+    }
+}
+
+
+/**/
+
+
+/*#############################################################*/
+
+
+/*SECCION 3 PRODUCTO AÑADIR AL CARRITO*/
+
+.formulario-pedido {
+    /*Habilitamos grid*/
+    display: grid;
+    /*Creamos 3 columnas de 1fr*/
+    grid-template-columns: repeat(3, 1fr);
+    /**/
+    grid-template-rows: repeat(2, 6rem);
+    /*PARTE DE LOS CAMPOS DE TEXTO Y EL BOTON*/
+    /*Espacio entre las columnas*/
+    grid-column-gap: 1rem;
+    /*Espacio entre las filas*/
+    grid-row-gap: 1rem;
+}
+
+.campo {
+    /*Color de fondo*/
+    background-color: transparent;
+    /*borde a los campos de texto*/
+    border: 5px solid white;
+    /*Tipo de fuente*/
+    font-family: var(--fuentePrincipal);
+    /*Tamaño de la fuente*/
+    font-size: 3rem;
+    /*Espacio hacia adentro del elemento*/
+    padding: 1rem;
+    /*Ancho */
+    width: 100%;
+    /*Color del texto*/
+    color: white;
+    /*Texto al centro*/
+    text-align: center;
+}
+
+
+/*Quitar las esquinas redondeadas de los campos de texto*/
+
+.talla {
+    /**/
+    --webkit-appearance: none;
+    --webkit-border-radius: 0px;
+    /*PARA POSICIONAR LOS ELEMENTOS LOS CAMPOS DE TEXTO Y EL BOTON
+    que el campo del combo box se expanda de la posicion 1 al 3*/
+    grid-column: 1 / 3;
+}
+
+.boton {
+    /*color de fondo*/
+    background-color: var(--secundario);
+    /*Tamaño de la fuente*/
+    font-size: 2rem;
+    /*Tamaño de la fuente*/
+    font-family: var(--fuentePrincipal);
+    /*Quitar el borde al boton*/
+    border: none;
+    /*Colocarle transicion al boton al momento de ponerle el cursor cambie de color*/
+    transition: background-color .3s ease;
+    /*PARA POSICIONAR LOS ELEMENTOS LOS CAMPOS DE TEXTO Y EL BOTON
+    que el boton se expanda de la posicion 1 al 4*/
+    grid-column: 1 / 4;
+}
+
+.boton:hover {
+    /*Mostrar la manita cuando el cursos este encima del boton*/
+    cursor: pointer;
+    /*color mas oscuro al boton*/
+    background-color: rgb(233, 187, 2)
+}
+
+
+/*#############################################################*/
+
+
+/*SECCION 5 FOOTER*/
+
+.footer {
+    /*Color de fondo*/
+    background-color: var(--primarioOscuro);
+    /*Espacio hacia adentro del elemento*/
+    padding: 1rem 0;
+    /*margen arriba*/
+    margin-top: 2rem;
+}
+
+
+/**/
+
+.copyright {
+    /*Tipo de la fuente*/
+    font-family: var(--fuentePrincipal);
+    /*Color de la fuente*/
+    color: white;
+    /*Centra el texto */
+    text-align: center;
+}
